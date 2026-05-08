@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="FryCuisine - Explore Trending Global & Healthy Food">
-    <title>FryCuisine - Trending & Healthy Food</title>
+    <title>FryCuisine - Trending, Global & Healthy Food</title>
     <link rel="stylesheet" href="home-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lora:wght@400;600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- ==================== NAVIGATION ==================== -->
-    <nav class="navbar">
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <nav class="navbar" aria-label="Primary navigation">
         <div class="navbar-container">
-            <div class="logo">
+            <a href="#home" class="logo" aria-label="FryCuisine home">
                 <i class="fas fa-utensils"></i>
                 <span>frycuisine</span>
-            </div>
+            </a>
+
+            <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#trending" class="nav-link">Trending food</a></li>
@@ -28,85 +34,200 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-                <i class="fas fa-times"></i>
-            </div>
+
+            <label class="search-bar" aria-label="Search FryCuisine">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search" autocomplete="off">
+                <button type="button" class="search-clear" aria-label="Clear search"><i class="fas fa-times"></i></button>
+            </label>
         </div>
     </nav>
 
-    <!-- ==================== HERO SECTION ==================== -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Explore Trending, Global & <span class="highlight">Healthy</span><br>Food at FryCuisine</h1>
-            <p>From viral food trends and world-famous dishes to<br>healthy diets and easy recipes — everything about<br>food in one place.</p>
-            <div class="hero-buttons">
-                <button class="btn btn-outline">
-                    <span>World cuisine</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-                <button class="btn btn-outline">
-                    <span>Diet Food</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
+    <main>
+        <section id="home" class="hero section-animate">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Explore Trending, Global & <span>Healthy</span><br>Food at FryCuisine</h1>
+                <p>From viral food trends and world-famous dishes to<br>healthy diets and easy recipes — everything about<br>food in one place.</p>
+                <div class="hero-buttons">
+                    <a href="#world-cuisine" class="pill-btn">World cuisine <i class="fas fa-arrow-right"></i></a>
+                    <a href="#diet" class="pill-btn">Diet Food <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
+            <div class="hero-dish" aria-hidden="true">
+                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=820&h=640&fit=crop" alt="Spaghetti with tomato sauce">
+            </div>
+        </section>
+
+        <section id="trending" class="trending section-animate">
+            <h2>Trending Food Right Now</h2>
+            <div class="trending-grid">
+                <article class="trending-card">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=700&h=520&fit=crop" alt="Korean corn dogs"></div>
+                    <div class="card-content">
+                        <h3>Korean Corn Dogs</h3>
+                        <p class="date">January 1, 2026&nbsp; <span>Trending</span></p>
+                        <p><strong>Crispy outside, cheesy inside!</strong><br>Golden fried corn dogs with gooey cheese and bold Korean flavors.</p>
+                        <a href="#blog">Read More...</a>
+                    </div>
+                </article>
+                <article class="trending-card">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=700&h=520&fit=crop" alt="Dubai chocolate bar"></div>
+                    <div class="card-content">
+                        <h3>Dubai Chocolate Bar</h3>
+                        <p class="date">January 1, 2026&nbsp; <span>Trending</span></p>
+                        <p><strong>Luxury in every bite.</strong><br>Rich chocolate layered with premium fillings inspired by Dubai desserts.</p>
+                        <a href="#blog">Read More...</a>
+                    </div>
+                </article>
+                <article class="trending-card">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=700&h=520&fit=crop" alt="Viral street momo"></div>
+                    <div class="card-content">
+                        <h3>Viral Street Momo</h3>
+                        <p class="date">January 2, 2026&nbsp; <span>Trending</span></p>
+                        <p><strong>The internet's favorite street snack.</strong><br>Juicy Momo tossed in spicy sauces, full of desi street-style flavor.</p>
+                        <a href="#blog">Read More...</a>
+                    </div>
+                </article>
+                <article class="trending-card">
+                    <div class="card-image"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=700&h=520&fit=crop" alt="Japanese soufflé pancakes"></div>
+                    <div class="card-content">
+                        <h3>Japanese Soufflé Pancakes</h3>
+                        <p class="date">January 2, 2026&nbsp; <span>Trending</span></p>
+                        <p><strong>Soft, fluffy & cloud-like.</strong><br>Light-as-air pancakes that melt in your mouth with every bite.</p>
+                        <a href="#blog">Read More...</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="recipes" class="recipes paper-section section-animate">
+            <div class="section-title">
+                <h2>Recipes Section</h2>
+            </div>
+            <div class="recipe-list">
+                <article class="recipe-row">
+                    <div class="recipe-copy">
+                        <h3>Meals for the soul</h3>
+                        <p>Fresh home-style recipes, written with easy steps, comfort flavors, and ingredient notes that make cooking joyful.</p>
+                        <a class="text-link" href="#blog">Read the recipe</a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=480&h=360&fit=crop" alt="Healthy bowl recipe">
+                </article>
+                <article class="recipe-row reverse">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=480&h=360&fit=crop" alt="Spicy toast recipe">
+                    <div class="recipe-copy">
+                        <h3>Toast Special Bowl</h3>
+                        <p>Layered spice, crispy textures, herby toppings, and quick weekday ideas for delicious family plates.</p>
+                        <a class="text-link" href="#blog">Read the recipe</a>
+                    </div>
+                </article>
+                <article class="recipe-row">
+                    <div class="recipe-copy">
+                        <h3>Air Fryer Paneer Tikka</h3>
+                        <p>Golden paneer cubes, colorful peppers, and smoky masala marinade with an easier air-fryer finish.</p>
+                        <a class="text-link" href="#blog">Read the recipe</a>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=480&h=360&fit=crop" alt="Paneer tikka skewers">
+                </article>
+                <article class="recipe-row reverse">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=480&h=360&fit=crop" alt="Cozy soup recipe">
+                    <div class="recipe-copy">
+                        <h3>Veggie Tomato Soup</h3>
+                        <p>Simple pantry soup with bright tomato, herbs, and a creamy texture that feels comforting every time.</p>
+                        <a class="text-link" href="#blog">Read the recipe</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="world-cuisine" class="world section-animate">
+            <div class="section-title compact">
+                <h2>Discover Our Best<br>World Cuisines</h2>
+            </div>
+            <div class="world-grid">
+                <article><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=360&h=260&fit=crop" alt="Indian cuisine"><h3>Indian Cuisine</h3><p>Rich curries, biryani, tandoori spices, and regional family favorites.</p><a href="#blog">Read More</a></article>
+                <article><img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?w=360&h=260&fit=crop" alt="Italian pasta"><h3>Italian Pasta Dishes</h3><p>Silky sauces, fresh herbs, handcrafted pasta, and rustic comfort.</p><a href="#blog">Read More</a></article>
+                <article><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=360&h=260&fit=crop" alt="Healthy cuisine"><h3>Rice Free Diet</h3><p>Clean greens, light dressings, protein bowls, and refreshing plates.</p><a href="#blog">Read More</a></article>
+            </div>
+        </section>
+
+        <section id="street-food" class="categories paper-section section-animate">
+            <div class="section-title">
+                <h2>Explore Food By<br><span>Category</span></h2>
+            </div>
+            <div class="category-grid">
+                <a href="#blog"><img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=240&h=240&fit=crop" alt="Indian food"><span>Indian Food</span></a>
+                <a href="#blog"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=240&h=240&fit=crop" alt="Low food"><span>Low Food</span></a>
+                <a href="#blog"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=240&h=240&fit=crop" alt="Healthy food"><span>Healthy Food</span></a>
+                <a href="#blog"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561e1d?w=240&h=240&fit=crop" alt="Street food"><span>Street Food</span></a>
+                <a href="#blog"><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=240&h=240&fit=crop" alt="Desserts"><span>Desserts</span></a>
+                <a href="#blog"><img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=240&h=240&fit=crop" alt="Rice food"><span>Rice Food</span></a>
+                <a href="#blog"><img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=240&h=240&fit=crop" alt="Snacks"><span>Snacks</span></a>
+                <a href="#blog"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=240&h=240&fit=crop" alt="Global cuisine"><span>Global Cuisine</span></a>
+            </div>
+        </section>
+
+        <section id="diet" class="diet section-animate">
+            <div class="diet-copy">
+                <h2>Healthy Food Guides</h2>
+                <p>Balanced, nourishing ideas for simple everyday meals with seasonal ingredients, mindful portions, and vibrant flavor.</p>
+            </div>
+            <div class="diet-cards">
+                <article><i class="fas fa-seedling"></i><h3>Fresh Bowls</h3><p>Greens, grains, nuts, and dressings.</p></article>
+                <article><i class="fas fa-apple-alt"></i><h3>Diet Tips</h3><p>Better habits without losing taste.</p></article>
+                <article><i class="fas fa-mortar-pestle"></i><h3>Clean Spices</h3><p>Natural flavor boosters for wellness.</p></article>
+            </div>
+        </section>
+
+        <section id="blog" class="latest paper-section section-animate">
+            <div class="section-title">
+                <h2>Latest from <span>FryCuisine</span></h2>
+            </div>
+            <div class="masonry-grid">
+                <article class="large"><img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=620&h=420&fit=crop" alt="Tacos"><h3>Homemade taco night with fresh salsa</h3><p>Spicy, colorful, and made for sharing.</p></article>
+                <article><img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=360&h=260&fit=crop" alt="Salad"><h3>Green bowls for busy days</h3><p>Fresh ideas with crunch.</p></article>
+                <article><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=360&h=260&fit=crop" alt="Dessert"><h3>Chocolate dessert guide</h3><p>Decadent sweets made simple.</p></article>
+                <article><img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=360&h=260&fit=crop" alt="Pasta"><h3>Creamy pasta for dinner</h3><p>Silky sauce and pantry staples.</p></article>
+                <article><img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=360&h=260&fit=crop" alt="Samosa"><h3>Street snacks to try</h3><p>Golden crisp bites.</p></article>
+                <article><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=360&h=260&fit=crop" alt="Burger"><h3>Loaded burger secrets</h3><p>Juicy patties and toppings.</p></article>
+                <article><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=360&h=260&fit=crop" alt="Stir fry"><h3>Wok-style vegetable stir fry</h3><p>Fast heat, bright flavor.</p></article>
+                <article><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=360&h=260&fit=crop" alt="Rice"><h3>Fried rice variations</h3><p>Simple, quick, comforting.</p></article>
+                <article><img src="https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?w=360&h=260&fit=crop" alt="Noodles"><h3>Noodles with herbs</h3><p>Slurp-worthy weeknight ideas.</p></article>
+            </div>
+        </section>
+
+        <section id="about" class="why section-animate">
+            <h2>Why Food Lovers Choose <span>FryCuisine</span></h2>
+            <div class="why-content">
+                <img src="https://images.unsplash.com/photo-1543353071-10c8ba85a904?w=700&h=520&fit=crop" alt="Fresh food spread on a table">
+                <div class="why-text">
+                    <p>FryCuisine brings trending food stories, global dishes, healthy diet inspiration, and simple recipe ideas into one beautiful place. Our home page is designed like a warm food magazine: rich imagery, elegant headings, soft cream sections, dark premium hero panels, and helpful content blocks for food lovers.</p>
+                    <p>Explore recipes, discover viral meals, learn about world cuisine, and save meal ideas that make every bite feel exciting.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer section-animate">
+        <div class="footer-brand"><span></span><a href="#home"><i class="fas fa-utensils"></i> frycuisine</a><span></span></div>
+        <div class="footer-container">
+            <div class="footer-section"><h3>Explore</h3><ul><li><a href="#trending">Trending Food</a></li><li><a href="#world-cuisine">World Cuisine</a></li><li><a href="#diet">Diet Food</a></li><li><a href="#recipes">Recipes</a></li></ul></div>
+            <div class="footer-section"><h3>Categories</h3><ul><li><a href="#street-food">Indian Food</a></li><li><a href="#street-food">Street Food</a></li><li><a href="#diet">Healthy Food</a></li><li><a href="#blog">Desserts</a></li><li><a href="#blog">Snacks</a></li></ul></div>
+            <div class="footer-section"><h3>Company</h3><ul><li><a href="#about">About</a></li><li><a href="#blog">Blog</a></li><li><a href="#contact">Contact</a></li><li><a href="#contact">Privacy Policy</a></li><li><a href="#contact">Disclaimer</a></li></ul></div>
+            <div class="footer-section follow-section"><h3>Follow us</h3><div class="social-icons"><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a><a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a><a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a></div></div>
         </div>
-        <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1473093295203-cad00df16e50?w=600&h=500&fit=crop" alt="Delicious Pasta">
+        <div class="newsletter-section">
+            <h2>Join FryCuisine – Food Stories in Your Inbox</h2>
+            <p>Trending food updates&nbsp; | &nbsp;Healthy diet tips&nbsp; | &nbsp;World cuisine articles</p>
+            <form class="newsletter-form">
+                <label><i class="fas fa-search"></i><input type="email" placeholder="" aria-label="Email address"><button type="reset" aria-label="Clear email"><i class="fas fa-times"></i></button></label>
+                <button type="submit" class="subscribe"><i class="fas fa-bell"></i> Subscribe</button>
+            </form>
         </div>
-    </section>
+        <button class="love-button" aria-label="Back to top"><i class="fas fa-heart"></i></button>
+    </footer>
 
-    <!-- ==================== TRENDING SECTION ==================== -->
-    <section id="trending" class="trending">
-        <h2>Trending Food Right Now</h2>
-        <div class="trending-grid">
-            <!-- Card 1 -->
-            <div class="trending-card">
-                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561e1d?w=400&h=300&fit=crop" alt="Korean Corn Dogs">
-                <div class="card-content">
-                    <h3>Korean Corn Dogs</h3>
-                    <p class="date">January 1, 2026 <span class="trending-badge">Trending</span></p>
-                    <p class="description">Crispy outside, cheesy inside! Golden-fried corn dogs with gooey cheese and bold Korean flavors.</p>
-                    <a href="#" class="read-more">READ MORE...</a>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="trending-card">
-                <img src="https://images.unsplash.com/photo-1599599810694-a5d2d8dd6baf?w=400&h=300&fit=crop" alt="Dubai Chocolate Bar">
-                <div class="card-content">
-                    <h3>Dubai Chocolate Bar</h3>
-                    <p class="date">January 1, 2026 <span class="trending-badge">Trending</span></p>
-                    <p class="description">Luxury in every bite. Rich chocolate layered with premium fillings inspired by Dubai desserts.</p>
-                    <a href="#" class="read-more">READ MORE...</a>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="trending-card">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" alt="Viral Street Momo">
-                <div class="card-content">
-                    <h3>Viral Street Momo</h3>
-                    <p class="date">January 2, 2026 <span class="trending-badge">Trending</span></p>
-                    <p class="description">The internet's favorite street snack. Juicy Momo tossed in spicy sauces, full of desi street-style flavor.</p>
-                    <a href="#" class="read-more">READ MORE...</a>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="trending-card">
-                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" alt="Japanese Soufflé Pancakes">
-                <div class="card-content">
-                    <h3>Japanese Soufflé Pancakes</h3>
-                    <p class="date">January 2, 2026 <span class="trending-badge">Trending</span></p>
-                    <p class="description">Soft, fluffy & cloud-like. Light-as-air pancakes that melt in your mouth with every bite.</p>
-                    <a href="#" class="read-more">READ MORE...</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== SCRIPTS ==================== -->
     <script src="home-script.js"></script>
 </body>
 </html>
