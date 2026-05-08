@@ -1,0 +1,548 @@
+/* ==================== GLOBAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #00d4ff;
+    --secondary-color: #ff006e;
+    --tertiary-color: #8338ec;
+    --dark-bg: #0a0e27;
+    --card-bg: #1a1f3a;
+    --border-color: #2a3f5f;
+    --text-light: #e0e0e0;
+    --text-muted: #999;
+    --accent-1: #ffbe0b;
+    --accent-2: #fb5607;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #0f1b35 100%);
+    color: var(--text-light);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==================== CONTAINER ==================== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: slideDown 0.6s ease;
+}
+
+.header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.header h1 i {
+    margin-right: 1rem;
+    animation: spin 3s linear infinite;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* ==================== CONTROLS ==================== */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+    animation: fadeIn 0.8s ease 0.2s both;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.8rem 1.2rem 0.8rem 2.8rem;
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.search-box input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-box i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.view-toggle {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.toggle-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    color: var(--text-light);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toggle-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.toggle-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--dark-bg);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+/* ==================== CLOCKS GRID ==================== */
+.clocks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    animation: fadeIn 0.8s ease 0.4s both;
+}
+
+.clocks-grid.list-view {
+    grid-template-columns: 1fr;
+}
+
+/* ==================== CLOCK CARD ==================== */
+.clock-card {
+    background: linear-gradient(135deg, var(--card-bg), rgba(26, 31, 58, 0.8));
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.clock-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.clock-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+}
+
+.clock-card:hover::before {
+    left: 100%;
+}
+
+.clock-card.hidden {
+    display: none;
+}
+
+/* ==================== TIMEZONE INFO ==================== */
+.timezone-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timezone-region {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+/* ==================== DIGITAL DISPLAY ==================== */
+.digital-display {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.digital-time {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.time-separator {
+    animation: blink 1s infinite;
+}
+
+.digital-period {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-left: 0.5rem;
+    font-weight: 600;
+}
+
+.digital-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-top: 0.5rem;
+}
+
+/* ==================== ANALOG CLOCK ==================== */
+.analog-clock {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.1), rgba(0, 0, 0, 0.5));
+    border: 3px solid var(--border-color);
+    position: relative;
+    margin: 1rem auto;
+}
+
+.clock-center {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.hand {
+    position: absolute;
+    background-color: var(--primary-color);
+    left: 50%;
+    transform-origin: bottom center;
+    bottom: 50%;
+}
+
+.hand.hour {
+    width: 4px;
+    height: 35px;
+    margin-left: -2px;
+    background-color: var(--primary-color);
+}
+
+.hand.minute {
+    width: 3px;
+    height: 50px;
+    margin-left: -1.5px;
+    background-color: var(--secondary-color);
+}
+
+.hand.second {
+    width: 2px;
+    height: 55px;
+    margin-left: -1px;
+    background-color: var(--tertiary-color);
+}
+
+.clock-number {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.clock-number span {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    width: 100%;
+}
+
+/* ==================== TIMEZONE OFFSET ==================== */
+.timezone-offset {
+    font-size: 0.85rem;
+    color: var(--accent-1);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.offset-label {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.offset-value {
+    font-weight: 600;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* ==================== STATS ==================== */
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    text-align: center;
+    animation: fadeIn 0.8s ease 0.6s both;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes blink {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(0, 212, 255, 1);
+    }
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1200px) {
+    .clocks-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header h1 i {
+        margin-right: 0.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .view-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .toggle-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .clocks-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .digital-time {
+        font-size: 2rem;
+    }
+
+    .analog-clock {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .clock-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .digital-time {
+        font-size: 1.8rem;
+    }
+
+    .timezone-name {
+        font-size: 0.95rem;
+    }
+
+    .analog-clock {
+        width: 100px;
+        height: 100px;
+    }
+
+    .stats {
+        padding: 1.5rem;
+    }
+
+    .stat-value {
+        font-size: 1.4rem;
+    }
+}
+
+/* ==================== SCROLLBAR STYLING ==================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
