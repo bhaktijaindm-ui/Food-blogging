@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digital Clock displaying time in multiple time zones">
+    <title>Multi-Timezone Digital Clock</title>
+    <link rel="stylesheet" href="clock-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1><i class="fas fa-globe"></i> Global Time Zone Clock</h1>
+            <p class="subtitle">Real-time clock across multiple time zones</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search timezone...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="view-toggle">
+                <button class="toggle-btn active" data-view="grid">
+                    <i class="fas fa-th"></i> Grid
+                </button>
+                <button class="toggle-btn" data-view="list">
+                    <i class="fas fa-list"></i> List
+                </button>
+            </div>
+        </div>
+
+        <!-- Clock Grid -->
+        <div class="clocks-grid" id="clocksContainer">
+            <!-- Clocks will be dynamically generated here -->
+        </div>
+
+        <!-- Stats Footer -->
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Active Timezones:</span>
+                <span class="stat-value" id="timezoneCount">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Last Updated:</span>
+                <span class="stat-value" id="lastUpdated">--:--:--</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="clock-script.js"></script>
+</body>
+</html>
